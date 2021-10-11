@@ -7,12 +7,12 @@ package com.rentamaquina.maquina.app.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
-import lombok.NoArgsConstructor;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 /**
  *
  * @author MarcelaArias
@@ -22,8 +22,7 @@ import lombok.Data;
 @NoArgsConstructor
 @Entity
 @Table(name="message")
-public class Message implements Serializable{
-    
+public class Message implements Serializable {
     @Id
     @GeneratedValue
     private int id;

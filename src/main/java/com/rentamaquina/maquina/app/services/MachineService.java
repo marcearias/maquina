@@ -31,11 +31,16 @@ public class MachineService {
     //PUT
     public Machine updateMachine(Machine machine){
         Machine existingMachine = repository.findById(machine.getId()).orElse(null);
-        existingMachine.setName(machine.getName());
         existingMachine.setBrand(machine.getBrand());
-        existingMachine.setModel(machine.getModel());
-        existingMachine.setCategory_id(machine.getCategory_id());
+        existingMachine.setYear(machine.getYear());
+        existingMachine.setCategory(machine.getCategory());
+        existingMachine.setName(machine.getName());
+        existingMachine.setDescription(machine.getDescription());
+        existingMachine.setMessages(machine.getMessages());
+        existingMachine.setReservations(machine.getReservations());
+        existingMachine.setScore(machine.getScore());
         return repository.save(existingMachine);
+
     }
     //DELETE
     public String deleteMachine(int id){

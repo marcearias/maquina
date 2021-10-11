@@ -5,8 +5,8 @@
  */
 package com.rentamaquina.maquina.app.controllers;
 
-import com.rentamaquina.maquina.app.entities.Client;
-import com.rentamaquina.maquina.app.services.ClientService;
+import com.rentamaquina.maquina.app.entities.Category;
+import com.rentamaquina.maquina.app.services.CategoryService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,37 +15,33 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 /**
  *
- * @author MarcelaArias
+ * @author Marcela Arias
  */
-@RestController
-@RequestMapping("Client")
-public class ClientController {
-   
+public class CategoryController {
     @Autowired
-    private ClientService service;
+    private CategoryService service;
     
    @GetMapping("/all")
-   public List<Client> findAllClient(){
-       return service.getClient();
+   public List<Category> findAllCategory(){
+       return service.getCategory();
    }
    
    @PostMapping("/save")
-   public ResponseEntity addClient(@RequestBody Client client){
-       service.saveClient(client);
+   public ResponseEntity addCategory(@RequestBody Category category){
+       service.saveCategory(category);
        return ResponseEntity.status(201).build();
    }
    @PutMapping("/update")
-   public ResponseEntity updateClient(@RequestBody Client client){
-       service.updateClient(client);
+   public ResponseEntity updateCategory(@RequestBody Category category){
+       service.updateCategory(category);
        return ResponseEntity.status(201).build();
    }
    @DeleteMapping("/delete")
-   public ResponseEntity deleteClient(@RequestBody Client client){
-       service.deleteClient(client.getIdClient());
+   public ResponseEntity deleteCategory(@RequestBody Category category){
+       service.deleteCategory(category.getId());
        return ResponseEntity.status(204).build();
    }
 }

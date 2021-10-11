@@ -6,13 +6,14 @@
 package com.rentamaquina.maquina.app.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
-import lombok.NoArgsConstructor;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 /**
  *
  * @author MarcelaArias
@@ -22,14 +23,17 @@ import lombok.Data;
 @NoArgsConstructor
 @Entity
 @Table(name="machine")
-public class Machine implements Serializable{
+public class Machine implements Serializable {
     
     @Id
     @GeneratedValue
     private int id;
     private String brand;
-    private int model;
-  //@Column(name="category_id")
-    private int category_id;
+    private int year;
+    private Category category;
     private String name;
+    private String description;
+    private List<Message> messages;
+    private List<Reservation> reservations;
+    private String score;
 }

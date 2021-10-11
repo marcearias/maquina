@@ -30,10 +30,13 @@ public class ClientService {
     }
         //PUT
     public Client updateClient(Client client){
-        Client existingClient = repository.findById(client.getId()).orElse(null);
+        Client existingClient = repository.findById(client.getIdClient()).orElse(null);
         existingClient.setName(client.getName());
-        existingClient.setEmail(client.getEmail());
         existingClient.setAge(client.getAge());
+        existingClient.setEmail(client.getEmail());
+        existingClient.setPassword(client.getPassword());
+        existingClient.setMessages(client.getMessages());
+        existingClient.setReservations(client.getReservations());     
         return repository.save(existingClient);
     }
     //DELETE
