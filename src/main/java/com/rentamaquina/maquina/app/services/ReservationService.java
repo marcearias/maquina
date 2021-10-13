@@ -34,8 +34,9 @@ public class ReservationService {
         existingReservation.setDevolutionDate(reservation.getDevolutionDate());
         existingReservation.setStatus(reservation.getStatus());
         existingReservation.setMachine(reservation.getMachine());
-        existingReservation.setMessages(reservation.getMessages());
+//        existingReservation.setMessages(reservation.getMessages());
         existingReservation.setClient(reservation.getClient());
+        existingReservation.setScore(reservation.getScore());
         return repository.save(existingReservation); 
     }
     //DELETE

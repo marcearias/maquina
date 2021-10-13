@@ -5,13 +5,16 @@
  */
 package com.rentamaquina.maquina.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,7 +39,11 @@ public class Client implements Serializable {
     @Column(name="email",nullable=false,length=50,unique=true)
     private String email;
     private String password;
+    @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy= "client")
+    @JsonIgnoreProperties("client")
     private List<Message> messages;
+    @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy= "client")
+    @JsonIgnoreProperties("client")
     private List<Reservation> reservations;
     
 }

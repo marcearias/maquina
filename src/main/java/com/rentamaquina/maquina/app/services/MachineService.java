@@ -38,7 +38,6 @@ public class MachineService {
         existingMachine.setDescription(machine.getDescription());
         existingMachine.setMessages(machine.getMessages());
         existingMachine.setReservations(machine.getReservations());
-        existingMachine.setScore(machine.getScore());
         return repository.save(existingMachine);
 
     }

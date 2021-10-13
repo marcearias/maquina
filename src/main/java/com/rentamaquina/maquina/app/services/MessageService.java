@@ -30,7 +30,7 @@ public class MessageService {
     }
             //PUT
     public Message updateMessage(Message message){
-        Message existingMessage = repository.findById(message.getId()).orElse(null);
+        Message existingMessage = repository.findById(message.getIdMessage()).orElse(null);
         existingMessage.setMessageText(message.getMessageText());
         return repository.save(existingMessage);
     }
