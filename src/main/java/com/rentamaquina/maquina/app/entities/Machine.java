@@ -35,20 +35,23 @@ public class Machine implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String name;
     private String brand;
     private int year;
-    @ManyToOne
-    @JoinColumn(name = "idCategory")
-    @JsonIgnoreProperties("machines")
- //   @Column(name="idCategory")
-    private Category category;
-    private String name;
     private String description;
+    
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    @JsonIgnoreProperties("machines")
+ // @JoinColumn(name = "idCategory")
+    private Category category;
+
+    
     @Column(nullable=true)
     @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy= "machine")
     @JsonIgnoreProperties({"machine","client"})
-    //@JsonIgnoreProperties("menssages"})
     private List<Message> messages;
+    
     @Column(nullable=true)
     @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy= "machine")
     @JsonIgnoreProperties({"machine","menssages"})
