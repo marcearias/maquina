@@ -34,10 +34,10 @@ public class Machine implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
     private String brand;
-    private int year;
+    private Integer year;
     private String description;
     
     @ManyToOne
@@ -47,12 +47,12 @@ public class Machine implements Serializable {
     private Category category;
 
     
-    @Column(nullable=true)
+ //   @Column(nullable=true)
     @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy= "machine")
     @JsonIgnoreProperties({"machine","client"})
     private List<Message> messages;
     
-    @Column(nullable=true)
+ //   @Column(nullable=true)
     @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy= "machine")
     @JsonIgnoreProperties({"machine","menssages"})
     private List<Reservation> reservations;

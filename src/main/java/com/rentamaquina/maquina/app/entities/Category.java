@@ -31,11 +31,12 @@ import lombok.NoArgsConstructor;
 public class Category implements Serializable {
     
     @Id
+    @Column(name="categoryId")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
     private String description;
-    @Column(nullable=true, unique = false)
+//    @Column(nullable=true, unique = false)
     @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy= "category")
     @JsonIgnoreProperties("category")
     private List<Machine> machines; 

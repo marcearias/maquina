@@ -32,8 +32,8 @@ public class Admin implements Serializable {
     
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int idAdmin;
-    private int email;
-    private int password;
-    private int name;
+    private Integer idAdmin;
+    private Integer email;
+    private Integer password;
+    private Integer name;
 }

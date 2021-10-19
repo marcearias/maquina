@@ -5,8 +5,8 @@
  */
 package com.rentamaquina.maquina.app.controllers;
 
-import com.rentamaquina.maquina.app.entities.Category;
-import com.rentamaquina.maquina.app.services.CategoryService;
+import com.rentamaquina.maquina.app.entities.Admin;
+import com.rentamaquina.maquina.app.services.AdminService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,50 +25,50 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Marcela Arias
  */
 @RestController
-@RequestMapping("Category")
-public class CategoryController {
-       
+@RequestMapping("Admin")
+public class AdminController {
+    
     @Autowired
-    private CategoryService service;
+    private AdminService service;
     
     /**
      * GET
      * @return 
      */
     @GetMapping("/all")
-    public List<Category> getCategory(){
+    public List<Admin> getAdmin(){
         return service.getAll();
     }
     
     /**
      * POST
-     * @param category
+     * @param admin
      * @return 
      */
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category save(@RequestBody Category category) {
-        return service.save(category);
+    public Admin save(@RequestBody Admin admin) {
+        return service.save(admin);
     }
     
     /**
      * PUT
-     * @param category
+     * @param admin
      * @return 
      */
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category update(@RequestBody Category category) {
-        return service.update(category);
+    public Admin update(@RequestBody Admin admin) {
+        return service.update(admin);
     }
     
     /**
      * DELETE
-     * @param categoryId
+     * @param adminId
      * @return 
      */
     @DeleteMapping("/{id}")
-    public boolean delete(@PathVariable("id") int categoryId) {
-        return service.deleteCategory(categoryId);
+    public boolean delete(@PathVariable("id") int adminId) {
+        return service.deleteAdmin(adminId);
     }
 }
